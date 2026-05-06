@@ -1,0 +1,151 @@
+.goals-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.goals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.goal-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.goal-card-top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.goal-ring-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.goal-ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-ring-icon { font-size: 18px; }
+
+.goal-ring-pct {
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.goal-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goal-amounts {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.goal-date {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.goal-bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.goal-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* emoji picker */
+.emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.emoji-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-btn:hover { background: rgba(255,255,255,0.1); }
+.emoji-btn-active {
+  background: rgba(10,132,255,0.2);
+  border-color: rgba(10,132,255,0.5);
+}
+
+.color-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.color-dot-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.color-dot-active {
+  border-color: white;
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .goals-grid { grid-template-columns: 1fr; }
+}

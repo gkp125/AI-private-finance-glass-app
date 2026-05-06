@@ -5,14 +5,16 @@ import './Sidebar.css';
 const navItems = [
   { id: 'dashboard', icon: '⬡', label: 'Dashboard' },
   { id: 'transactions', icon: '↕', label: 'Transactions' },
+  { id: 'budgets', icon: '📊', label: 'Budgets' },
+  { id: 'goals', icon: '🎯', label: 'Goals' },
   { id: 'books', icon: '📒', label: 'Books' },
-  { id: 'reports', icon: '📊', label: 'Reports' },
+  { id: 'reports', icon: '📈', label: 'Reports' },
   { id: 'settings', icon: '⚙', label: 'Settings' },
 ];
 
 export default function Sidebar() {
-  const { activeView, setActiveView, books, activeBook, setActiveBook, getBalance, toggleAiChat, aiChatOpen, transactions } = useStore();
-
+  const { activeView, setActiveView, books, activeBook, setActiveBook, getBalance, toggleAiChat, aiChatOpen, transactions, theme, setTheme, settings } = useStore();
+  const cur = settings?.currency || 'INR';
   const totalBalance = getBalance('all');
   const isPositive = totalBalance >= 0;
 
@@ -21,24 +23,31 @@ export default function Sidebar() {
       {/* Brand */}
       <div className="sidebar-brand">
         <div className="brand-logo">
-          <span className="brand-icon">₹</span>
+          <span className="brand-icon">◈</span>
         </div>
         <div className="brand-text">
           <span className="brand-name">CashBook</span>
           <span className="brand-tagline">Smart Finance</span>
         </div>
+        <button
+          className="glass-icon-btn theme-toggle"
+          title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          {theme === 'dark' ? '☀' : '🌙'}
+        </button>
       </div>
 
       {/* Balance Card */}
       <div className="sidebar-balance glass-card-flat">
         <div className="balance-label">Net Balance</div>
         <div className={`balance-amount ${isPositive ? 'text-green' : 'text-red'}`}>
-          {formatCurrency(totalBalance)}
+          {formatCurrency(totalBalance, false, cur)}
         </div>
         <div className="balance-sub">
-          <span className="text-green">↑ {formatCurrency(useStore.getState().getTotalIncome('all'), true)}</span>
+          <span className="text-green">↑ {formatCurrency(useStore.getState().getTotalIncome('all'), true, cur)}</span>
           <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
-          <span className="text-red">↓ {formatCurrency(useStore.getState().getTotalExpense('all'), true)}</span>
+          <span className="text-red">↓ {formatCurrency(useStore.getState().getTotalExpense('all'), true, cur)}</span>
         </div>
       </div>
 
@@ -79,7 +88,7 @@ export default function Sidebar() {
             <span className="book-icon">{book.icon}</span>
             <span className="book-name">{book.name}</span>
             <span className="book-balance" style={{ color: getBalance(book.id) >= 0 ? 'var(--green)' : 'var(--red)' }}>
-              {formatCurrency(getBalance(book.id), true)}
+              {formatCurrency(getBalance(book.id), true, cur)}
             </span>
           </button>
         ))}

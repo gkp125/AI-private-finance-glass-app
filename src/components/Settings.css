@@ -157,6 +157,56 @@
 .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 16px; }
 .modal-title { font-size: 18px; font-weight: 700; }
 
+/* Currency selector */
+.currency-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.currency-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  min-width: 60px;
+}
+
+.currency-btn:hover {
+  background: rgba(10,132,255,0.1);
+  border-color: rgba(10,132,255,0.3);
+  color: var(--text-primary);
+}
+
+.currency-btn-active {
+  background: rgba(10,132,255,0.2);
+  border-color: rgba(10,132,255,0.5);
+  color: var(--blue);
+}
+
+.currency-symbol {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.currency-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.theme-toggle {
+  margin-left: auto;
+}
+
 @media (max-width: 900px) {
   .settings-grid { grid-template-columns: 1fr; }
 }

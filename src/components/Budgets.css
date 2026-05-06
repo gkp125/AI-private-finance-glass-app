@@ -1,0 +1,157 @@
+.budgets-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.budgets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.budgets-summary {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.budget-sum-item {
+  flex: 1;
+  padding: 18px 20px;
+  text-align: center;
+  border-right: 1px solid var(--glass-border);
+}
+.budget-sum-item:last-child { border-right: none; }
+
+.budget-sum-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+.budget-sum-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.budgets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.budget-item {
+  padding: 16px 18px;
+}
+
+.budget-item-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.budget-cat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.budget-cat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.budget-cat-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.budget-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.budget-bar-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.budget-bar-pct {
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: right;
+}
+
+.budget-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.budget-spent-val {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.budget-item-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.budget-edit-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.add-budget-section {
+  padding: 18px 20px;
+}
+
+.add-budget-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.add-budget-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .budgets-summary { flex-direction: column; }
+  .budget-sum-item { border-right: none; border-bottom: 1px solid var(--glass-border); }
+  .budget-sum-item:last-child { border-bottom: none; }
+  .budget-item-top { flex-wrap: wrap; }
+  .add-budget-row { flex-direction: column; }
+  .add-budget-row > * { width: 100% !important; }
+}
